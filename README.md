@@ -1,25 +1,36 @@
 # Mule EE Docker Image
 
-The repository provide a Dockerfile to build Mule EE docker images.
-
-The Dockerfile defines 2 build arguments to specify the JDK and the mule runtime version.
-
- | ARG             	| DEFAULT       	| DESCRIPTION                                 	|
- |-----------------	|---------------	|---------------------------------------------	|
- | RUNTIME_VERSION 	| 3.9.3         	| Mule Runtime Version                        	|
- | JAVA_BINARIES   	| AdoptOpenJDK8 	| URL to download the java binaries `.tar.gz` 	|
-
-## Build the docker
-### With default build args
-To build the image navigate to the docker folder and run the docker build command.
-
-```shell
-docker build -it mariocairone/mule-ee:3.9.3 .
+This repository contains base docker image to run Mule EE containers.
+The image doesn't contain a valid license so by default it will run using the evaluation license expiring in 30 days.
+## How to use
+```
+docker pull mariocairone/mule-ee:4.2.1
 ```
 
-### With non default mule runtime version
+### Usage
 
-Build the image for a different mule runtime version
-```shell
-docker build --build-arg RUNTIME_VERSION=4.2.1 -t mariocairone/mule-ee:4.2.1 .
+For a simple application using Default HTTP/HTTPS port
+
 ```
+docker run -d --name myMuleContainer -P -v ~/myAppsDir:/opt/mule/apps  -v ~/myLogsDir:/opt/mule/logs mariocairone/mule-ee:4.2.1
+```
+
+#### Noteworthy mount points
+
+| Mount point       | Description                                                     |
+|------------------ |-----------------------------------------------------------------|
+|/opt/mule/apps     | Mule Application deployment directory                           |
+|/opt/mule/domains  | Mule Domains deployment directory                               |
+|/opt/mule/conf     | Configuration directory                                         |
+|/opt/mule/logs     | Logs directory                                                  |
+|/opt/mule/libs       | Libs directory                                                   |
+
+#### Exposed ports
+
+| Port | Description                                                     |
+|----- |-----------------------------------------------------------------|
+| 8081-8082 | Default CloudHub public HTTP/HTTPS port                                               |
+| 8091-8092 | Default CloudHub private HTTP/HTTPS port                                               |
+| 5000 | Mule remote debugger port                                               |
+| 7777 | Mule Agent port                                               |
+| 1098 | Mule JMX port                                               |
