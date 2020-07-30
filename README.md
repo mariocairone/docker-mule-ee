@@ -13,7 +13,7 @@ docker pull mariocairone/mule-ee:4.3.0
 For a simple application using Default HTTP/HTTPS port
 
 ```
-docker run -d --name myMuleContainer -P -v ~/myAppsDir:/opt/mule/apps  -v ~/myLogsDir:/opt/mule/logs mariocairone/mule-ee:4.2.1
+docker run -d --name myMuleContainer -P -v ~/myAppsDir:/opt/mule/apps  -v ~/myLogsDir:/opt/mule/logs mariocairone/mule-ee:4.3.0
 ```
 
 #### Noteworthy mount points
