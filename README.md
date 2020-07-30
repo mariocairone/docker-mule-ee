@@ -5,7 +5,7 @@ This repository contains base docker image to run Mule EE containers.
 The image doesn't contain a valid license so by default it will run using the evaluation license expiring in 30 days.
 ## How to use
 ```
-docker pull mariocairone/mule-ee:4.2.1
+docker pull mariocairone/mule-ee:4.3.0
 ```
 
 ### Usage

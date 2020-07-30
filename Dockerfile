@@ -2,8 +2,8 @@ FROM         centos:latest
 LABEL maintainer="Mario Cairone <mario.cairone@gmail.com>"
 
 # Define docker build ARGS
-ARG JAVA_BINARIES=https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08/OpenJDK8U-jdk_x64_linux_hotspot_8u242b08.tar.gz
-ARG RUNTIME_VERSION=4.2.2
+ARG JAVA_BINARIES=https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u265-b01/OpenJDK8U-jdk_x64_linux_hotspot_8u265b01.tar.gz
+ARG RUNTIME_VERSION=4.3.0
 
 # Define environment variables
 ENV 	JAVA_BINARIES $JAVA_BINARIES
